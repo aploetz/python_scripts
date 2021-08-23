@@ -18,7 +18,7 @@ endRanges = []
 
 # build end ranges
 for counterj in range(numNodes):
-    endRanges.append(str(((2**64 / 5) * counterj) - 2**63))
+    endRanges.append(str(((2**64 / numNodes) * counterj) - 2**63))
 
 print "node  start range              end range"
 # determine start ranges from end ranges

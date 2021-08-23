@@ -22,4 +22,4 @@ pStatement = session.prepare("""
 
 rows = session.execute(pStatement,[keyspace,table])
 for row in rows:
-    print row[0]
+    print(row[0])
