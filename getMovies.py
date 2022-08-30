@@ -20,6 +20,6 @@ auth_provider = PlainTextAuthProvider(username=username, password=password)
 cluster = Cluster(nodes,auth_provider=auth_provider, protocol_version=protocol)
 session = cluster.connect()
 
-rows = session.execute("SELECT key FROM system.local;")
+rows = session.execute("SELECT * FROM stackoverflow.movies WHERE title='Sneakers (1992)' ALLOW FILTERING")
 for row in rows:
-    print(row[0])
+    print(row)
