@@ -27,21 +27,25 @@ session = cluster.connect("stackoverflow")
 
 file = 'event_datafile_new.csv'
 
-insert_table1 = """INSERT INTO song_info_by_session
-    (session_id, 
-    item_in_session,
-    artist_name, 
+insert_table1 = """INSERT INTO songs_by_sessionid
+    (sessionid, 
+    artist, 
     length, 
     song) 
-    VALUES (?,?,?,?,?)
+    VALUES (?,?,?,?)
 """
 
 pStatement = session.prepare(insert_table1);
 
-with open(file, encoding = 'utf8') as f:
-    csvreader = csv.reader(f)
-    #next(csvreader) # skip header
-    for line in csvreader:
+#with open(file, encoding = 'utf8') as f:
+#    csvreader = csv.reader(f)
+#    #next(csvreader) # skip header
+#    for line in csvreader:
 
-        session.execute(pStatement,(int(line[0]),int(line[1]),line[2],float(line[3]),line[4]))
+#        session.execute(pStatement,(int(line[0]),line[2],float(line[3]),line[4]))
 
+session_id = 251
+artist_name = "Your Artist"
+song_name = "Your Song"
+song_length = 125.2
+session.execute(pStatement, (session_id, artist_name, song_length, song_name))

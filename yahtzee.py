@@ -39,7 +39,7 @@ def decide(dice):
         if (indexK > 0):
             value = rolledA[indexK]
             #testing
-            print "%d = %d" % (indexK, value)
+            print("%d = %d" % (indexK, value))
 
             if (value > highVal):
                 sndHighVal = highVal
@@ -49,29 +49,29 @@ def decide(dice):
                     sndHighVal = value
             
     if (highVal == 5):
-        print "Yahtzee!"
+        print("Yahtzee!")
     else:
         if (rolledA[1] == rolledA[2] == rolledA[3] == rolledA[4] == rolledA[5]) or (rolledA[2] == rolledA[3] == rolledA[4] == rolledA[5] == rolledA[6]):
-            print "Large Straight"
+            print("Large Straight")
         else:
             if (highVal == 4):
-                print "Four-of-a-Kind"
+                print("Four-of-a-Kind")
             else:
                 if (rolledA[1] >= 1 and rolledA[2] >= 1 and rolledA[3] >= 1 and rolledA[4] >= 1) or \
                  (rolledA[2] >= 1 and rolledA[3] >= 1 and rolledA[4] >= 1 and rolledA[5] >= 1) or \
                  (rolledA[3] >= 1 and rolledA[4] >= 1 and rolledA[5] >= 1 and rolledA[6] >= 1):
-                    print "Small Straight"
+                    print("Small Straight")
                 else:
                     if (highVal == 3):
                         if (sndHighVal == 2):
-                            print "Full House"
+                            print("Full House")
                         else:
-                            print "Three-of-a-Kind"
+                            print("Three-of-a-Kind")
             
 #start by rolling all 5
 hand = roll_dice(5)
 
 #show your hand
-print hand
+print(hand)
 
 hold = decide(hand)
